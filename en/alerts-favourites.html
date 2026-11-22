@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alerts, favourites and saved searches · Andrés Gallego</title>
+<meta name="description" content="Improving search and discovery in a car and motorbike marketplace with three key features.">
+<meta name="author" content="Andrés Gallego">
+<meta name="theme-color" content="#212427">
+<link rel="canonical" href="https://andresgallego.com/en/alerts-favourites.html">
+<link rel="alternate" hreflang="es" href="https://andresgallego.com/alertas-favoritos.html">
+<link rel="alternate" hreflang="en" href="https://andresgallego.com/en/alerts-favourites.html">
+<link rel="alternate" hreflang="x-default" href="https://andresgallego.com/alertas-favoritos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Andrés Gallego">
+<meta property="og:title" content="Alerts, favourites and saved searches · Andrés Gallego">
+<meta property="og:description" content="Improving search and discovery in a car and motorbike marketplace with three key features.">
+<meta property="og:url" content="https://andresgallego.com/en/alerts-favourites.html">
+<meta property="og:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Andrés Gallego, product designer in Madrid">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alerts, favourites and saved searches · Andrés Gallego">
+<meta name="twitter:description" content="Improving search and discovery in a car and motorbike marketplace with three key features.">
+<meta name="twitter:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=cabinet-grotesk@500,700&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.cargando{position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:4px;background:#fff;opacity:0;pointer-events:none;animation:cargando-entra .3s ease 1.2s forwards;transition:opacity .4s ease}
+.cargando.fuera{animation:none;opacity:0!important;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
+@keyframes cargando-entra{to{opacity:1;pointer-events:auto}}
+.cargando__cab{width:150px;height:auto;min-height:213px;display:block}
+.cargando__puntos{display:flex;gap:9px;height:14px;align-items:center}
+.cargando__puntos i{width:9px;height:9px;border-radius:50%;background:#212427;animation:cargando-punto 1.2s ease-in-out infinite}
+.cargando__puntos i:nth-child(2){animation-delay:.2s}.cargando__puntos i:nth-child(3){animation-delay:.4s}
+@keyframes cargando-punto{0%,70%,100%{opacity:.18;transform:scale(.8)}35%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.cargando__puntos i{animation:none;opacity:.6}}
+</style>
+<noscript><style>.cargando{display:none}</style></noscript>
+<script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+<div class="cargando" id="cargando" role="status" aria-live="polite"><img class="cargando__cab" data-src="../assets/img/cabezon-mini.webp" alt=""><div class="cargando__puntos" aria-hidden="true"><i></i><i></i><i></i></div><span class="solo-lectores">Loading…</span></div>
+<script>(function(){var c=document.getElementById("cargando");if(!c)return;setTimeout(function(){var i=c.querySelector("img");if(i&&c.parentNode&&!c.classList.contains("fuera"))i.src=i.getAttribute("data-src")},600);var f=function(){c.classList.add("fuera");setTimeout(function(){c.remove()},600)};if(document.readyState==="complete")f();else{window.addEventListener("load",f);setTimeout(f,12000)}})();</script>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="trazo" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter><filter id="trazo-fino" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter><filter id="trazo-card" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter></svg>
+<nav class="site-nav" aria-label="Main">
+  <a class="nav-name" href="index.html">Andrés Gallego</a>
+  <a class="nav-lang" href="../alertas-favoritos.html" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+  <div class="m-cabecera">
+    <a class="m-id" href="index.html"><span class="m-foto"><img src="../assets/img/andres.jpg" alt=""></span><span class="m-nombre">Andrés Gallego</span></a>
+    <div class="m-acciones">
+      <a class="m-btn" href="mailto:andresgallego.design@gmail.com" aria-label="Email Andrés"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></a>
+      <a class="m-btn" href="https://www.linkedin.com/in/andres-gallego/" target="_blank" rel="noopener" aria-label="Andrés on LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M5.2 9.2h3.1V19H5.2zM6.75 4.6a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.4 9.2h3v1.35h.04c.42-.8 1.45-1.65 2.98-1.65 3.18 0 3.77 2.1 3.77 4.8V19h-3.1v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V19h-3.1z"/></svg></a>
+      <a class="m-btn m-lang" href="../alertas-favoritos.html" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    </div>
+  </div>
+  <div class="nav-pill">
+    <a class="nav-tl" href="index.html" aria-current="page">Home</a>
+    <a class="nav-tr" href="about.html">About</a>
+    <a class="nav-bl" href="personal.html">Personal</a>
+    <a class="nav-br" href="index.html#contacto">Contact</a>
+  </div>
+</nav>
+<main id="main" class="page">
+<header class="cs-hero"><h1>Alerts, favourites and saved searches</h1><p class="sub">Improving search and discovery in a car and motorbike marketplace with three key features.</p></header>
+<div class="cs-portada"><figure class="media "><div class="media__box" style="--ratio:16 / 9"><img src="../assets/img/alertas-portada.webp" alt="Cover of Alerts, favourites and saved searches" loading="lazy"></div></figure></div>
+<dl class="cs-meta"><div><dt>Company</dt><dd>Astara Store (2023)</dd></div><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Sector</dt><dd>Auto-tech, Mobility, E-commerce</dd></div><div><dt>Focus</dt><dd>B2C Design, Search and Discovery</dd></div><div><dt>Worked with</dt><dd>Product Management, development team</dd></div></dl>
+<section class="cs-section"><div class="cs-wrap"><h2>Context</h2>
+<p><strong>Astara Store</strong> was an <strong>online marketplace</strong> for <strong>cars</strong> and <strong>motorbikes</strong>.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-contexto.webp" alt="Astara Store" loading="lazy"></div></figure>
+<div class="callout callout--gris">💰 The user journey is usually <strong>long and complex</strong>, since buying a <strong>vehicle is a very considered purchase</strong>.</div>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>The challenge</h2>
+<p>My main goal was to <strong>improve that search and discovery experience</strong>.</p>
+<p>To achieve it, we focused on researching and designing these <strong>three key features</strong>:</p>
+<div class="callout ">♥️ <strong>Favourites</strong>, so users can <strong>save and compare</strong> specific cars.</div>
+<div class="callout ">🔎 <strong>Saved searches</strong>, to remove that repetitive day-to-day work.</div>
+<div class="callout ">🔔 And finally, <strong>Alerts</strong>, to <strong>proactively notify users the moment their ideal car was listed</strong>.</div>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>Research</h2>
+<p>I started the research by analysing the competition. I <strong>focused</strong> on how other car websites integrated their <strong>Favourites</strong>, <strong>Saved searches</strong> and <strong>Alerts</strong>, to learn from their solutions and best practices.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-competidores.webp" alt="Competitors" loading="lazy"></div><figcaption>Competitors</figcaption></figure>
+<p>I worked with my Product Owner in a <strong>whiteboarding</strong> session to <strong>map out these flows</strong>. The goal was to validate a V1 and make sure we were aligned before starting the visual design.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-whiteboard.webp" alt="Whiteboarding session map" loading="lazy"></div><figcaption>Whiteboarding session map</figcaption></figure>
+</div></section>
+<section class="cs-section cs-section--fondito"><div class="cs-wrap"><h2>Ideation</h2>
+<ul><li>With the user flows approved, I started translating them <strong>into low-fidelity wireframes</strong>.</li><li>At Astara we had a <strong>greyscale UI kit</strong> that allowed me to <strong>build and test these structures quickly</strong>.</li></ul>
+<div class="duo"><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-wireframe-1.webp" alt="Low-fidelity wireframe 1" loading="lazy"></div></figure><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-wireframe-2.webp" alt="Low-fidelity wireframe 2" loading="lazy"></div></figure></div>
+<div class="callout callout--gris">💡 One of the <strong>first design challenges</strong> was deciding on a <strong>consistent placement for the “favourite” icon</strong>.</div>
+<p>The goal was to find a single solution that felt intuitive and worked seamlessly across all card variants.</p>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>The solution</h2>
+<h3>♥ Favourites</h3>
+<p>This was the solution I found to <strong>ensure consistency across every card layout for each vehicle type</strong>.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-favorito-icono.webp" alt="Placement of the favourite icon on the cards" loading="lazy"></div></figure>
+<div class="callout callout--gris">🎯 The solution was to <strong>set a single, consistent placement for the “favourite” icon</strong> in the bottom-right corner of every card. This approach <strong>works seamlessly across all vehicle types and card layouts</strong>.</div>
+<h3>Dedicated “Favourites” page</h3>
+<ul><li>To give users a <strong>central place to manage what they find</strong>, I designed this dedicated “Favourites” page, which <strong>also includes their “Saved searches”</strong>.</li><li>Another decision was to <strong>automatically group items by vehicle type</strong>. This helps users stay organised and easily compare the options they’re considering.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-favoritos-pagina.webp" alt="Dedicated Favourites page" loading="lazy"></div><figcaption>Dedicated “Favourites” page</figcaption></figure>
+<h3>🔎 Saved searches</h3>
+<ul><li>To solve the problem of repetitive work, I designed the “Saved searches” tab, where <strong>users can repeat complex searches with a single click</strong>.</li><li>The key feature here is the <strong>“Create alert”</strong> button. It acts as an intuitive bridge that <strong>lets users</strong> easily turn a passive saved search into a <strong>proactive, automatic alert</strong>.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-busquedas-guardadas.webp" alt="Dedicated Saved searches page" loading="lazy"></div><figcaption>Dedicated “Saved searches” page</figcaption></figure>
+<h3>🔔 Alerts</h3>
+<ul><li>To make the “Alerts” feature <strong>powerful and easy to find</strong>, I designed <strong>two main entry points</strong> to create them.</li><li>Users can <strong>create an alert directly from a search results page</strong> or from their list of previously <strong>saved searches</strong>.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-catalogo-motos.webp" alt="Motorbike catalogue page" loading="lazy"></div><figcaption>Motorbike catalogue page</figcaption></figure>
+<h3>Alert creation form</h3>
+<ul><li>For the “Create alert” form, I made the deliberate decision to <strong>simplify the experience without including every possible filter</strong>.</li><li>In collaboration with my Product Owner, we <strong>identified and prioritised only the most essential filters</strong> needed to create a meaningful alert.</li><li>This reduces complexity for the user and makes the process much <strong>faster</strong> and <strong>less overwhelming</strong>.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-formulario.webp" alt="Alert creation form" loading="lazy"></div></figure>
+<h3>Email notifications</h3>
+<p>The “Alerts” experience <strong>goes beyond the website</strong> and reaches the user’s inbox. A crucial last step was designing the <strong>complete email notification system</strong>.</p>
+<div class="callout callout--gris">📨 I created a <strong>set of templates</strong> covering the whole lifecycle of an alert — from <strong>creation</strong> to <strong>results</strong> — to ensure a consistent and useful experience at every touchpoint.</div>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-emails.webp" alt="Email notification templates" loading="lazy"></div><figcaption>Email notification templates</figcaption></figure>
+<h3>Quick login and sign-up</h3>
+<ul><li>To enable these new personalisation features, users first <strong>needed an account</strong>. This required <strong>designing a quick and smooth login and sign-up flow</strong>.</li><li>The goal was <strong>to make this step as frictionless as possible</strong>, appearing in context when the user tries to save a vehicle or a search for the first time.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="../assets/img/alertas-login.webp" alt="Quick login and sign-up flow" loading="lazy"></div></figure>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>Conclusion and key learnings</h2>
+<div class="callout callout--gris">✅ The project <strong>concluded with a complete, high-fidelity design, ready for handoff</strong> to the development team.</div>
+<div class="callout callout--gris">🚫 Unfortunately, <strong>the company ceased operations before this feature could be implemented</strong>.</div>
+</div></section>
+<a class="siguiente" href="farmerzone-payouts.html"><small>Next project</small><span>FarmerZone Payouts →</span></a>
+</main>
+<footer class="pie"><p>© 2026 Andrés Gallego · Product designer in Madrid</p></footer>
+</body>
+</html>

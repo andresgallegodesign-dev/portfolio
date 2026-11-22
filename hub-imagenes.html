@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un hub central para las imágenes de los proyectos · Andrés Gallego</title>
+<meta name="description" content="Un único lugar para gestionar las imágenes de cada proyecto en el nuevo back office de CrowdFarming.">
+<meta name="author" content="Andrés Gallego">
+<meta name="theme-color" content="#212427">
+<link rel="canonical" href="https://andresgallego.com/hub-imagenes.html">
+<link rel="alternate" hreflang="es" href="https://andresgallego.com/hub-imagenes.html">
+<link rel="alternate" hreflang="en" href="https://andresgallego.com/en/central-image-hub.html">
+<link rel="alternate" hreflang="x-default" href="https://andresgallego.com/hub-imagenes.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Andrés Gallego">
+<meta property="og:title" content="Un hub central para las imágenes de los proyectos · Andrés Gallego">
+<meta property="og:description" content="Un único lugar para gestionar las imágenes de cada proyecto en el nuevo back office de CrowdFarming.">
+<meta property="og:url" content="https://andresgallego.com/hub-imagenes.html">
+<meta property="og:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Andrés Gallego, product designer en Madrid">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Un hub central para las imágenes de los proyectos · Andrés Gallego">
+<meta name="twitter:description" content="Un único lugar para gestionar las imágenes de cada proyecto en el nuevo back office de CrowdFarming.">
+<meta name="twitter:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=cabinet-grotesk@500,700&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.cargando{position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:4px;background:#fff;opacity:0;pointer-events:none;animation:cargando-entra .3s ease 1.2s forwards;transition:opacity .4s ease}
+.cargando.fuera{animation:none;opacity:0!important;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
+@keyframes cargando-entra{to{opacity:1;pointer-events:auto}}
+.cargando__cab{width:150px;height:auto;min-height:213px;display:block}
+.cargando__puntos{display:flex;gap:9px;height:14px;align-items:center}
+.cargando__puntos i{width:9px;height:9px;border-radius:50%;background:#212427;animation:cargando-punto 1.2s ease-in-out infinite}
+.cargando__puntos i:nth-child(2){animation-delay:.2s}.cargando__puntos i:nth-child(3){animation-delay:.4s}
+@keyframes cargando-punto{0%,70%,100%{opacity:.18;transform:scale(.8)}35%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.cargando__puntos i{animation:none;opacity:.6}}
+</style>
+<noscript><style>.cargando{display:none}</style></noscript>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<div class="cargando" id="cargando" role="status" aria-live="polite"><img class="cargando__cab" data-src="assets/img/cabezon-mini.webp" alt=""><div class="cargando__puntos" aria-hidden="true"><i></i><i></i><i></i></div><span class="solo-lectores">Cargando…</span></div>
+<script>(function(){var c=document.getElementById("cargando");if(!c)return;setTimeout(function(){var i=c.querySelector("img");if(i&&c.parentNode&&!c.classList.contains("fuera"))i.src=i.getAttribute("data-src")},600);var f=function(){c.classList.add("fuera");setTimeout(function(){c.remove()},600)};if(document.readyState==="complete")f();else{window.addEventListener("load",f);setTimeout(f,12000)}})();</script>
+<a class="skip" href="#main">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="trazo" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter><filter id="trazo-fino" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter><filter id="trazo-card" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter></svg>
+<nav class="site-nav" aria-label="Principal">
+  <a class="nav-name" href="index.html">Andrés Gallego</a>
+  <a class="nav-lang" href="en/central-image-hub.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+  <div class="m-cabecera">
+    <a class="m-id" href="index.html"><span class="m-foto"><img src="assets/img/andres.jpg" alt=""></span><span class="m-nombre">Andrés Gallego</span></a>
+    <div class="m-acciones">
+      <a class="m-btn" href="mailto:andresgallego.design@gmail.com" aria-label="Enviar un email a Andrés"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></a>
+      <a class="m-btn" href="https://www.linkedin.com/in/andres-gallego/" target="_blank" rel="noopener" aria-label="LinkedIn de Andrés"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M5.2 9.2h3.1V19H5.2zM6.75 4.6a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.4 9.2h3v1.35h.04c.42-.8 1.45-1.65 2.98-1.65 3.18 0 3.77 2.1 3.77 4.8V19h-3.1v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V19h-3.1z"/></svg></a>
+      <a class="m-btn m-lang" href="en/central-image-hub.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    </div>
+  </div>
+  <div class="nav-pill">
+    <a class="nav-tl" href="index.html" aria-current="page">Home</a>
+    <a class="nav-tr" href="sobre-mi.html">Sobre mí</a>
+    <a class="nav-bl" href="personal.html">Personal</a>
+    <a class="nav-br" href="index.html#contacto">Contacto</a>
+  </div>
+</nav>
+<main id="main" class="page">
+<header class="cs-hero"><h1>Un hub central para las imágenes de los proyectos</h1><p class="sub">Un único lugar para gestionar las imágenes de cada proyecto en el nuevo back office de CrowdFarming.</p></header>
+<div class="cs-portada"><figure class="media "><div class="media__box" style="--ratio:16 / 9"><img src="assets/img/hub-imagenes-portada.webp" alt="Portada del hub de imágenes" loading="lazy"></div></figure></div>
+<dl class="cs-meta"><div><dt>Empresa</dt><dd>CrowdFarming (2025)</dd></div><div><dt>Rol</dt><dd>Product Designer</dd></div><div><dt>Sector</dt><dd>Agrotech, E-commerce</dd></div><div><dt>Foco</dt><dd>CMS, B2B Design</dd></div><div><dt>Con quién</dt><dd>Equipo de desarrollo, equipo de Back Office</dd></div></dl>
+<section class="cs-section"><div class="cs-wrap"><h2>Contexto</h2>
+<p>CrowdFarming es una plataforma que conecta a los consumidores directamente con los agricultores, donde los usuarios pueden «adoptar» un árbol o una unidad de cultivo, pedir cajas sueltas o crear una suscripción.</p>
+<p><strong>FRP</strong> es el <strong>nuevo back office de CrowdFarming</strong>, un proyecto que sigue en marcha y que implica mucho trabajo de migración y código legacy.</p>
+<div class="duo"><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-backoffice-antiguo.webp" alt="Back office antiguo" loading="lazy"></div><figcaption>Back office antiguo</figcaption></figure><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-backoffice-nuevo.webp" alt="Back office nuevo" loading="lazy"></div><figcaption>Back office nuevo</figcaption></figure></div>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>El reto</h2>
+<p>El <strong>equipo web de CrowdFarming</strong> itera constantemente sobre cómo se muestran las imágenes. Por ejemplo, prueban a poner varias fotos dentro de una misma card o a añadir vídeos de YouTube a la página de producto.</p>
+<div class="duo"><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-reto-1.webp" alt="Variante de card con varias fotos" loading="lazy"></div></figure><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-reto-2.webp" alt="Página de producto con vídeo" loading="lazy"></div></figure></div>
+<div class="callout callout--aviso">🚨 El <strong>problema de fondo</strong>: la selección y el orden de las imágenes eran un proceso manual, <strong>desconectado del back office</strong>. Esto generaba dos problemas importantes: inconsistencias en los datos y <strong>retrasos significativos en la publicación de nuevos proyectos</strong>.</div>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>Punto de partida</h2>
+<p>Mi primer paso fue entender a fondo el problema y el escenario existente con el que tenía que trabajar. En FRP, un «Proyecto» es <strong>una agregación de otras entidades como Agricultores, Fincas y Productos</strong>. Muchas de estas entidades tienen <strong>sus propias imágenes</strong>, y cada imagen requiere <strong>texto alternativo en 7 idiomas distintos</strong>, lo que añadía complejidad.</p>
+<div class="callout callout--gris">📂 Un <strong>«Proyecto» es una agregación de varias entidades</strong> (p. ej., Agricultores, Fincas, Productos, etc.).</div>
+<div class="callout callout--gris">🖼️ Muchas de estas entidades <strong>tienen sus propias imágenes</strong>, y cada una necesita texto alternativo en 7 idiomas.</div>
+<div class="duo"><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-punto-partida-1.webp" alt="Entidades con sus propias imágenes" loading="lazy"></div><figcaption>Muchas de estas entidades tienen sus propias imágenes, y cada una necesita texto alternativo en 7 idiomas.</figcaption></figure><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-punto-partida-2.webp" alt="Página de Proyecto anterior en FRP" loading="lazy"></div><figcaption>La página de Proyecto anterior en FRP. Los usuarios no podían ver todas las imágenes de un vistazo, ni editarlas o gestionar su orden.</figcaption></figure></div>
+</div></section>
+<section class="cs-section cs-section--fondito"><div class="cs-wrap"><h2>Investigación</h2>
+<p>Entrevisté a varios usuarios de nuestro equipo de back office para entender mejor sus necesidades e identificar nuevas oportunidades.</p>
+<p>Estos fueron los principales insights:</p>
+<ul><li>Poder <strong>ver todas las imágenes del proyecto en un solo lugar</strong></li><li>Poder <strong>añadir y eliminar imágenes</strong></li><li>Poder <strong>reordenar</strong> las imágenes</li><li>Poder diferenciar <strong>entre imágenes de card</strong> e <strong>imágenes de la página de producto</strong></li></ul>
+<div class="callout ">💡 Oportunidad: <strong>mejorar</strong> la experiencia de <strong>gestionar el texto alternativo multiidioma</strong>.</div>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-insights.webp" alt="Resumen de insights de la investigación" loading="lazy"></div></figure>
+<p>Con estos insights en mente, hice un <strong>benchmark</strong>. Analicé cómo resuelven problemas similares productos con galerías de imágenes complejas, como Shopify, WordPress y Squarespace.</p>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>Ideación</h2>
+<p>Con los insights de la investigación en mente, pasé a la fase de ideación.</p>
+<p>Mi primera propuesta fue diseñar una card autónoma que permitiera a los usuarios <strong>subir varias imágenes a la vez</strong> y reordenarlas fácilmente.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-ideacion.webp" alt="Primera propuesta: card autónoma de subida múltiple" loading="lazy"></div><figcaption>La primera propuesta fue diseñar una card autónoma que permitiera a los usuarios subir varias imágenes a la vez y reordenarlas fácilmente.</figcaption></figure>
+<h3>Restricciones y descubrimientos</h3>
+<div class="callout ">⛔ <strong>No era posible recortar una imagen después de subirla</strong> (esto crearía imágenes duplicadas). <strong>Requería un esfuerzo de desarrollo</strong> que quedaba fuera del alcance de este proyecto.</div>
+<div class="callout ">🖼️ La web de CrowdFarming utiliza <strong>otras dos proporciones que el recortador actual del back office no contemplaba</strong>.</div>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>La solución</h2>
+<h3>Un único lugar para todas las imágenes del proyecto</h3>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-solucion-1.webp" alt="Todas las imágenes del proyecto en un solo lugar" loading="lazy"></div></figure>
+<ul><li>Ahora, al crear un proyecto, el sistema encuentra y muestra automáticamente todas las imágenes relacionadas.</li><li>Esto aporta visibilidad inmediata y crea una única fuente de verdad para todos los visuales del proyecto.</li></ul>
+<h3>La pestaña «Files»: funcionalidades clave</h3>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-files.webp" alt="Pestaña Files" loading="lazy"></div></figure>
+<ul><li>Introdujimos una <strong>pestaña «Files» donde los usuarios pueden subir fotos nuevas y eliminarlas</strong>.</li><li>Era importante <strong>diferenciar</strong> esta biblioteca maestra <strong>de las imágenes seleccionadas en la pestaña «Info»</strong>, que representan la selección final del proyecto.</li></ul>
+<div class="callout ">🛡️ Una decisión de diseño clave fue <strong>proteger los assets originales: las imágenes heredadas (identificadas con tags) no se pueden eliminar aquí</strong>, sino que deben gestionarse en su origen.</div>
+<h3>Editar imágenes de PDP/CARD y su orden</h3>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-modal.webp" alt="Modal de dos paneles para editar imágenes" loading="lazy"></div></figure>
+<p>Diseñé un <strong>modal de dos paneles</strong> para que la edición fuera intuitiva. A la derecha, los usuarios ven su biblioteca completa de imágenes disponibles. A la izquierda, construyen su galería seleccionada añadiendo imágenes de la biblioteca y luego simplemente arrastrando para reordenarlas o eliminarlas.</p>
+<h3>El flujo de subida y preparación</h3>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-subida.webp" alt="Flujo de subida y recorte" loading="lazy"></div></figure>
+<div class="callout ">🚧 <strong>Debido a las restricciones técnicas que mencioné</strong>, el flujo de subida se diseñó para <strong>imágenes individuales, con un recorte obligatorio</strong> en cada una.</div>
+<div class="callout ">🌐 Una decisión estratégica clave fue <strong>centralizar la gestión del texto alternativo</strong>. Quitamos esta responsabilidad de las entidades de origen (como Fincas o Productos) y convertimos al <strong>Proyecto en la única fuente de verdad</strong>. Esto da al equipo pleno control sobre la accesibilidad y el SEO específicos del proyecto.</div>
+<h3>Enriqueciendo el contenido con vídeo</h3>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/hub-video.webp" alt="Incrustar vídeos de YouTube y Vimeo" loading="lazy"></div></figure>
+<p>También añadimos la opción de incrustar vídeos de YouTube y Vimeo, con sus propios textos alternativos multiidioma.</p>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>Estado del proyecto y próximos pasos</h2>
+<div class="callout callout--gris">✅ El diseño final fue <strong>validado con el equipo de Back Office</strong> y me alegra decir que fue <strong>aprobado por completo</strong> tanto por el PM como por el equipo de desarrollo.</div>
+<div class="callout callout--gris">🚀 Esperamos que este nuevo sistema <strong>reduzca el time-to-publish de los nuevos proyectos</strong> al <strong>ahorrar mucho tiempo</strong> tanto en <strong>gestionar</strong> las imágenes como en <strong>revisar</strong> el proyecto final.</div>
+<div class="callout callout--gris">🛠 Está en el <strong>backlog de desarrollo</strong> y le seguiré de cerca para apoyar a los ingenieros cuando llegue el momento de construirlo.</div>
+</div></section>
+<a class="siguiente" href="alertas-favoritos.html"><small>Siguiente proyecto</small><span>Alertas, favoritos y búsquedas guardadas →</span></a>
+</main>
+<footer class="pie"><p>© 2026 Andrés Gallego · Product designer en Madrid</p></footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alertas, favoritos y búsquedas guardadas · Andrés Gallego</title>
+<meta name="description" content="Mejorar la búsqueda y el descubrimiento en un marketplace de coches y motos con tres funcionalidades clave.">
+<meta name="author" content="Andrés Gallego">
+<meta name="theme-color" content="#212427">
+<link rel="canonical" href="https://andresgallego.com/alertas-favoritos.html">
+<link rel="alternate" hreflang="es" href="https://andresgallego.com/alertas-favoritos.html">
+<link rel="alternate" hreflang="en" href="https://andresgallego.com/en/alerts-favourites.html">
+<link rel="alternate" hreflang="x-default" href="https://andresgallego.com/alertas-favoritos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Andrés Gallego">
+<meta property="og:title" content="Alertas, favoritos y búsquedas guardadas · Andrés Gallego">
+<meta property="og:description" content="Mejorar la búsqueda y el descubrimiento en un marketplace de coches y motos con tres funcionalidades clave.">
+<meta property="og:url" content="https://andresgallego.com/alertas-favoritos.html">
+<meta property="og:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Andrés Gallego, product designer en Madrid">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alertas, favoritos y búsquedas guardadas · Andrés Gallego">
+<meta name="twitter:description" content="Mejorar la búsqueda y el descubrimiento en un marketplace de coches y motos con tres funcionalidades clave.">
+<meta name="twitter:image" content="https://andresgallego.com/assets/img/og-image.jpg">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=cabinet-grotesk@500,700&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.cargando{position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:4px;background:#fff;opacity:0;pointer-events:none;animation:cargando-entra .3s ease 1.2s forwards;transition:opacity .4s ease}
+.cargando.fuera{animation:none;opacity:0!important;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
+@keyframes cargando-entra{to{opacity:1;pointer-events:auto}}
+.cargando__cab{width:150px;height:auto;min-height:213px;display:block}
+.cargando__puntos{display:flex;gap:9px;height:14px;align-items:center}
+.cargando__puntos i{width:9px;height:9px;border-radius:50%;background:#212427;animation:cargando-punto 1.2s ease-in-out infinite}
+.cargando__puntos i:nth-child(2){animation-delay:.2s}.cargando__puntos i:nth-child(3){animation-delay:.4s}
+@keyframes cargando-punto{0%,70%,100%{opacity:.18;transform:scale(.8)}35%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.cargando__puntos i{animation:none;opacity:.6}}
+</style>
+<noscript><style>.cargando{display:none}</style></noscript>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<div class="cargando" id="cargando" role="status" aria-live="polite"><img class="cargando__cab" data-src="assets/img/cabezon-mini.webp" alt=""><div class="cargando__puntos" aria-hidden="true"><i></i><i></i><i></i></div><span class="solo-lectores">Cargando…</span></div>
+<script>(function(){var c=document.getElementById("cargando");if(!c)return;setTimeout(function(){var i=c.querySelector("img");if(i&&c.parentNode&&!c.classList.contains("fuera"))i.src=i.getAttribute("data-src")},600);var f=function(){c.classList.add("fuera");setTimeout(function(){c.remove()},600)};if(document.readyState==="complete")f();else{window.addEventListener("load",f);setTimeout(f,12000)}})();</script>
+<a class="skip" href="#main">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="trazo" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter><filter id="trazo-fino" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter><filter id="trazo-card" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter></svg>
+<nav class="site-nav" aria-label="Principal">
+  <a class="nav-name" href="index.html">Andrés Gallego</a>
+  <a class="nav-lang" href="en/alerts-favourites.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+  <div class="m-cabecera">
+    <a class="m-id" href="index.html"><span class="m-foto"><img src="assets/img/andres.jpg" alt=""></span><span class="m-nombre">Andrés Gallego</span></a>
+    <div class="m-acciones">
+      <a class="m-btn" href="mailto:andresgallego.design@gmail.com" aria-label="Enviar un email a Andrés"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></a>
+      <a class="m-btn" href="https://www.linkedin.com/in/andres-gallego/" target="_blank" rel="noopener" aria-label="LinkedIn de Andrés"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M5.2 9.2h3.1V19H5.2zM6.75 4.6a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.4 9.2h3v1.35h.04c.42-.8 1.45-1.65 2.98-1.65 3.18 0 3.77 2.1 3.77 4.8V19h-3.1v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V19h-3.1z"/></svg></a>
+      <a class="m-btn m-lang" href="en/alerts-favourites.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+    </div>
+  </div>
+  <div class="nav-pill">
+    <a class="nav-tl" href="index.html" aria-current="page">Home</a>
+    <a class="nav-tr" href="sobre-mi.html">Sobre mí</a>
+    <a class="nav-bl" href="personal.html">Personal</a>
+    <a class="nav-br" href="index.html#contacto">Contacto</a>
+  </div>
+</nav>
+<main id="main" class="page">
+<header class="cs-hero"><h1>Alertas, favoritos y búsquedas guardadas</h1><p class="sub">Mejorar la búsqueda y el descubrimiento en un marketplace de coches y motos con tres funcionalidades clave.</p></header>
+<div class="cs-portada"><figure class="media "><div class="media__box" style="--ratio:16 / 9"><img src="assets/img/alertas-portada.webp" alt="Portada de Alertas, favoritos y búsquedas guardadas" loading="lazy"></div></figure></div>
+<dl class="cs-meta"><div><dt>Empresa</dt><dd>Astara Store (2023)</dd></div><div><dt>Rol</dt><dd>Product Designer</dd></div><div><dt>Sector</dt><dd>Auto-tech, Movilidad, E-commerce</dd></div><div><dt>Foco</dt><dd>B2C Design, Search and Discovery</dd></div><div><dt>Con quién</dt><dd>Product Management, equipo de desarrollo</dd></div></dl>
+<section class="cs-section"><div class="cs-wrap"><h2>Contexto</h2>
+<p><strong>Astara Store</strong> era un <strong>marketplace online</strong> de <strong>coches</strong> y <strong>motos</strong>.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-contexto.webp" alt="Astara Store" loading="lazy"></div></figure>
+<div class="callout callout--gris">💰 El recorrido del usuario suele ser <strong>largo y complejo</strong>, ya que comprar un <strong>vehículo es una compra muy meditada</strong>.</div>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>El reto</h2>
+<p>Mi objetivo principal era <strong>mejorar esa experiencia de búsqueda y descubrimiento</strong>.</p>
+<p>Para lograrlo, nos centramos en investigar y diseñar estas <strong>tres funcionalidades clave</strong>:</p>
+<div class="callout ">♥️ <strong>Favoritos</strong>, para que los usuarios puedan <strong>guardar y comparar</strong> coches concretos.</div>
+<div class="callout ">🔎 <strong>Búsquedas guardadas</strong>, para eliminar ese trabajo repetitivo del día a día.</div>
+<div class="callout ">🔔 Y por último, <strong>Alertas</strong>, para <strong>avisar de forma proactiva a los usuarios en el momento en que se publicaba su coche ideal</strong>.</div>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>Investigación</h2>
+<p>Empecé la investigación analizando a la competencia. Me <strong>centré</strong> en cómo otras webs de coches integraban sus <strong>Favoritos</strong>, <strong>Búsquedas guardadas</strong> y <strong>Alertas</strong>, para aprender de sus soluciones y buenas prácticas.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-competidores.webp" alt="Competidores" loading="lazy"></div><figcaption>Competidores</figcaption></figure>
+<p>Trabajé con mi Product Owner en una sesión de <strong>whiteboarding</strong> para <strong>mapear estos flujos</strong>. El objetivo era validar una V1 y asegurarnos de estar alineados antes de empezar con el diseño visual.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-whiteboard.webp" alt="Mapa de la sesión de whiteboarding" loading="lazy"></div><figcaption>Mapa de la sesión de whiteboarding</figcaption></figure>
+</div></section>
+<section class="cs-section cs-section--fondito"><div class="cs-wrap"><h2>Ideación</h2>
+<ul><li>Con los flujos de usuario aprobados, empecé a traducirlos <strong>en wireframes de baja fidelidad</strong>.</li><li>En Astara teníamos un <strong>UI kit en escala de grises</strong> que me permitía <strong>construir y probar estas estructuras rápidamente</strong>.</li></ul>
+<div class="duo"><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-wireframe-1.webp" alt="Wireframe de baja fidelidad 1" loading="lazy"></div></figure><figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-wireframe-2.webp" alt="Wireframe de baja fidelidad 2" loading="lazy"></div></figure></div>
+<div class="callout callout--gris">💡 Uno de los <strong>primeros retos de diseño</strong> fue decidir una <strong>ubicación consistente para el icono de «favorito»</strong>.</div>
+<p>El objetivo era encontrar una única solución que resultara intuitiva y funcionara a la perfección en todas las variantes de card.</p>
+</div></section>
+<section class="cs-section"><div class="cs-wrap"><h2>La solución</h2>
+<h3>♥ Favoritos</h3>
+<p>Esta fue la solución que encontré para <strong>garantizar la consistencia en todos los layouts de cards de cada tipo de vehículo</strong>.</p>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-favorito-icono.webp" alt="Ubicación del icono de favorito en las cards" loading="lazy"></div></figure>
+<div class="callout callout--gris">🎯 La solución fue <strong>establecer una ubicación única</strong> y <strong>consistente para el icono de «favorito»</strong> en la esquina inferior derecha de cada card. Este enfoque <strong>funciona a la perfección en todos los tipos de vehículo y layouts de card</strong>.</div>
+<h3>Página dedicada de «Favoritos»</h3>
+<ul><li>Para dar a los usuarios un <strong>lugar central donde gestionar lo que encuentran</strong>, diseñé esta página dedicada de «Favoritos», que <strong>también incluye sus «Búsquedas guardadas»</strong>.</li><li>Otra decisión fue <strong>agrupar automáticamente los elementos por tipo de vehículo</strong>. Esto ayuda a los usuarios a mantenerse organizados y a comparar fácilmente las opciones que están considerando.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-favoritos-pagina.webp" alt="Página dedicada de Favoritos" loading="lazy"></div><figcaption>Página dedicada de «Favoritos»</figcaption></figure>
+<h3>🔎 Búsquedas guardadas</h3>
+<ul><li>Para resolver el problema del trabajo repetitivo, diseñé la pestaña de «Búsquedas guardadas», donde <strong>los usuarios pueden repetir búsquedas complejas con un solo clic</strong>.</li><li>La funcionalidad clave aquí es el botón <strong>«Crear alerta»</strong>. Actúa como un puente intuitivo que <strong>permite a los usuarios</strong> convertir fácilmente una búsqueda guardada pasiva en una <strong>alerta proactiva y automática</strong>.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-busquedas-guardadas.webp" alt="Página dedicada de Búsquedas guardadas" loading="lazy"></div><figcaption>Página dedicada de «Búsquedas guardadas»</figcaption></figure>
+<h3>🔔 Alertas</h3>
+<ul><li>Para que la funcionalidad de «Alertas» fuera <strong>potente y fácil de encontrar</strong>, diseñé <strong>dos puntos de entrada principales</strong> para crearlas.</li><li>Los usuarios pueden <strong>crear una alerta directamente desde una página de resultados de búsqueda</strong> o desde su lista de <strong>búsquedas guardadas</strong> anteriormente.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-catalogo-motos.webp" alt="Página del catálogo de motos" loading="lazy"></div><figcaption>Página del catálogo de motos</figcaption></figure>
+<h3>Formulario de creación de alertas</h3>
+<ul><li>Para el formulario de «Crear alerta», tomé la decisión deliberada de <strong>simplificar la experiencia sin incluir todos los filtros posibles</strong>.</li><li>En colaboración con mi Product Owner, <strong>identificamos y priorizamos solo los filtros más esenciales</strong> necesarios para crear una alerta con sentido.</li><li>Esto reduce la complejidad para el usuario y hace el proceso mucho <strong>más rápido</strong> y <strong>menos abrumador</strong>.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-formulario.webp" alt="Formulario de creación de alertas" loading="lazy"></div></figure>
+<h3>Notificaciones por email</h3>
+<p>La experiencia de «Alertas» <strong>va más allá de la web</strong> y llega a la bandeja de entrada del usuario. Un último paso crucial fue diseñar el <strong>sistema completo de notificaciones por email</strong>.</p>
+<div class="callout callout--gris">📨 Creé un <strong>conjunto de plantillas</strong> que cubre todo el ciclo de vida de una alerta —de la <strong>creación</strong> a los <strong>resultados</strong>— para garantizar una experiencia consistente y útil en cada punto de contacto.</div>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-emails.webp" alt="Plantillas de notificaciones por email" loading="lazy"></div><figcaption>Plantillas de notificaciones por email</figcaption></figure>
+<h3>Login y registro rápidos</h3>
+<ul><li>Para habilitar estas nuevas funcionalidades de personalización, los usuarios primero <strong>necesitaban una cuenta</strong>. Esto exigía <strong>diseñar un flujo de login y registro rápido y fluido</strong>.</li><li>El objetivo era <strong>que este paso tuviera la mínima fricción posible</strong>, apareciendo en contexto cuando el usuario intenta guardar por primera vez un vehículo o una búsqueda.</li></ul>
+<figure class="media "><div class="media__box" style="--ratio:16 / 10"><img src="assets/img/alertas-login.webp" alt="Flujo de login y registro rápidos" loading="lazy"></div></figure>
+</div></section>
+<section class="cs-section cs-section--veis"><div class="cs-wrap"><h2>Conclusión y aprendizajes clave</h2>
+<div class="callout callout--gris">✅ El proyecto <strong>concluyó con un diseño completo y de alta fidelidad, listo para el handoff</strong> al equipo de desarrollo.</div>
+<div class="callout callout--gris">🚫 Por desgracia, <strong>la empresa cesó su actividad antes de que esta funcionalidad pudiera implementarse</strong>.</div>
+</div></section>
+<a class="siguiente" href="farmerzone-pagos.html"><small>Siguiente proyecto</small><span>Pagos de FarmerZone →</span></a>
+</main>
+<footer class="pie"><p>© 2026 Andrés Gallego · Product designer en Madrid</p></footer>
+</body>
+</html>

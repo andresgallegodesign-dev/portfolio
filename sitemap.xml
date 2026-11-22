@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://andresgallego.com/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/sobre-mi.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/about.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/sobre-mi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/personal.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/personal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/personal.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/personal.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/personal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/personal.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/farmerzone-pagos.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/farmerzone-pagos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/farmerzone-payouts.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/farmerzone-payouts.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/farmerzone-pagos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/farmerzone-payouts.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/hub-imagenes.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/hub-imagenes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/central-image-hub.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/central-image-hub.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/hub-imagenes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/central-image-hub.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/alertas-favoritos.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/alertas-favoritos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/alerts-favourites.html"/>
+  </url>
+  <url>
+    <loc>https://andresgallego.com/en/alerts-favourites.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://andresgallego.com/alertas-favoritos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andresgallego.com/en/alerts-favourites.html"/>
+  </url>
+</urlset>
