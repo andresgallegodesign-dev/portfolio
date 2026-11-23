@@ -4,6 +4,8 @@
   var en = document.documentElement.lang === "en";
   var IMG = "assets/img/";
   try { if (document.currentScript && document.currentScript.src) IMG = new URL("../img/", document.currentScript.src).href; } catch (e) {}
+  var DISCOS_URL = "assets/data/discos.json";
+  try { if (document.currentScript && document.currentScript.src) DISCOS_URL = new URL("../data/discos.json", document.currentScript.src).href; } catch (e) {}
 
   /* Imágenes: si el archivo no existe, se muestra un marcador con el nombre que debe tener. */
   document.querySelectorAll(".media__box").forEach(function (box) {
@@ -363,7 +365,10 @@
       function ok() { b.textContent = en ? "Copied!" : "¡Copiado!"; }
       function sel() {
         var r = document.createRange(); r.selectNodeContents(pop.querySelector(".correo-pop__dir"));
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = en ? "Select and copy" : "Selecciona y copia";
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        /* Sin portapapeles moderno (p. ej. página en http), se intenta la copia clásica; si tampoco, queda seleccionado para copiar a mano */
+        var hecho = false; try { hecho = document.execCommand("copy"); } catch (e) {}
+        if (hecho) ok(); else b.textContent = en ? "Select and copy" : "Selecciona y copia";
       }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(dir).then(ok, sel); else sel();
     });
@@ -397,19 +402,20 @@
     var norm = function (x) { return (x || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); };
     /* Apple limita las consultas (~20 por minuto): se hacen una a una y el resultado se guarda 7 días en el navegador */
     var cola = Promise.resolve();
-    function api(url) {
+    function apiRapida(url) {
       return new Promise(function (ok) {
         function jsonp() {
           var n = "__disco" + (++cb), sc = document.createElement("script"), hecho = false;
           function fin(r) { if (hecho) return; hecho = true; ok(r); sc.remove(); try { delete window[n]; } catch (e) { window[n] = undefined; } }
           window[n] = function (data) { fin(data && data.results || []); };
           sc.onerror = function () { fin([]); };
-          setTimeout(function () { fin([]); }, 8000);
+          setTimeout(function () { fin([]); }, 5000);
           sc.src = url + "&callback=" + n; document.head.appendChild(sc);
         }
         if (window.fetch) fetch(url).then(function (r) { return r.json(); }).then(function (d) { ok(d.results || []); }).catch(jsonp); else jsonp();
-      }).then(function (r) { return new Promise(function (ok) { setTimeout(function () { ok(r); }, 350); }); });
+      });
     }
+    function api(url) { return apiRapida(url).then(function (r) { return new Promise(function (ok) { setTimeout(function () { ok(r); }, 350); }); }); }
     function enCola(fn) { var p = cola.then(fn); cola = p.catch(function () {}); return p; }
     var base = "https://itunes.apple.com/";
     function elige(res, d) {
@@ -423,15 +429,29 @@
       var exactos = buenos.filter(function (r) { return norm(r.trackName).replace(/\s*[\(\[].*$/, "").trim() === kt; });
       return (exactos.sort(porFecha)[0]) || buenos.sort(porFecha)[0] || null;
     }
+    /* Datos ya resueltos (carátula + fragmento de cada canción): cargan al instante, sin consultar a Apple */
+    var estatico = null;
+    function cargaEstatico() {
+      if (!estatico) estatico = window.fetch ? fetch(DISCOS_URL).then(function (r) { return r.json(); }).catch(function () { return {}; }) : Promise.resolve({});
+      return estatico;
+    }
     function busca(d) {
+      var term = d.getAttribute("data-term");
+      return cargaEstatico().then(function (m) {
+        var e = m && m[term];
+        return e && e.p ? { preview: e.p, art: e.a, t: Date.now() } : vivo(d);
+      });
+    }
+    function vivo(d, saltar) {
       var term = d.getAttribute("data-term"), clave = "disco:" + term, c = null;
       try { c = JSON.parse(localStorage.getItem(clave) || "null"); } catch (e) {}
-      if (c && c.preview && Date.now() - c.t < 6048e5) return Promise.resolve(c);
-      return enCola(function () {
-        var r = null;
-        return api(base + "search?media=music&entity=song&limit=25&country=ES&term=" + encodeURIComponent(term))
-          .then(function (res) { r = elige(res, d); if (r) return r;
-            return api(base + "search?media=music&entity=song&limit=25&country=US&term=" + encodeURIComponent(term)).then(function (res2) { return elige(res2, d); }); })
+      if (!saltar && c && c.preview && Date.now() - c.t < 6048e5) return Promise.resolve(c);
+      /* La primera consulta va en paralelo (sin esperar la cola); solo los reintentos se hacen de uno en uno */
+      var r = null;
+      return apiRapida(base + "search?media=music&entity=song&limit=25&country=ES&term=" + encodeURIComponent(term))
+        .then(function (res) { r = elige(res, d); return r; })
+        .then(function (x) { if (x) return x; return enCola(function () {
+        return api(base + "search?media=music&entity=song&limit=25&country=US&term=" + encodeURIComponent(term)).then(function (res2) { return elige(res2, d); })
           .then(function (x) { r = x; if (r) return r;
             /* Último intento: buscar al artista y repasar su catálogo */
             var nombres = (d.getAttribute("data-artistas") || "").split("|"), i = 0;
@@ -448,7 +468,14 @@
             try { localStorage.setItem(clave, JSON.stringify(o)); } catch (e) {}
             return o;
           });
-      });
+        }); })
+        .then(function (x) {
+          if (!x) return null;
+          if (x.preview) return x;
+          var o = { preview: x.previewUrl, art: (x.artworkUrl100 || "").replace("100x100", "600x600"), t: Date.now() };
+          try { localStorage.setItem(clave, JSON.stringify(o)); } catch (e) {}
+          return o;
+        });
     }
     /* Color del vinilo: el tono dominante de la carátula (si el navegador deja leer la imagen) */
     function colorDe(img) {
@@ -491,6 +518,11 @@
     }
     function para() { audio.pause(); if (actual) { actual.classList.remove("sonando"); actual = null; } }
     audio.addEventListener("ended", para);
+    audio.addEventListener("error", function () {
+      var d = actual; if (!d || d.__reintento) { para(); return; }
+      d.__reintento = true;
+      vivo(d, true).then(function (o) { if (o && actual === d) { d.__preview = o.preview; audio.src = o.preview; var p = audio.play(); if (p && p.catch) p.catch(para); } else para(); });
+    });
     discos.forEach(function (d) {
       var portada = d.querySelector(".disco__portada"), play = d.querySelector(".disco__play");
       portada.addEventListener("click", function () {
