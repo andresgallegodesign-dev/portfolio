@@ -559,4 +559,15 @@
     var pide = function () { if (!pend) { pend = true; requestAnimationFrame(revisa); } };
     window.addEventListener("scroll", pide, { passive: true }); window.addEventListener("resize", pide); revisa();
   }
+  /* Enlaces internos (p. ej. "Ver proyectos"): bajan suavemente a la sección SIN añadir #ancla a la dirección.
+     Así, si alguien copia o comparte la URL, siempre es la home limpia y no salta directo a los proyectos. */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || a.classList.contains("skip")) return;
+    var id = a.getAttribute("href").slice(1), t = id && document.getElementById(id);
+    if (!t) return;
+    e.preventDefault();
+    var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    t.scrollIntoView({ behavior: quieto ? "auto" : "smooth", block: "start" });
+  });
 })();
