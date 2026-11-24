@@ -7,6 +7,16 @@
   var DISCOS_URL = "assets/data/discos.json";
   try { if (document.currentScript && document.currentScript.src) DISCOS_URL = new URL("../data/discos.json", document.currentScript.src).href; } catch (e) {}
 
+  /* Botón de volver en los casos: si se llegó desde la portada de esta misma web, vuelve atrás en el historial (recupera el punto exacto del scroll); si no, va a los proyectos */
+  var volver = document.querySelector(".volver");
+  if (volver) volver.addEventListener("click", function (e) {
+    try {
+      var ref = document.referrer ? new URL(document.referrer) : null;
+      var esPortada = ref && ref.origin === location.origin && /\/(en\/)?(index(\.html)?)?$/.test(ref.pathname);
+      if (esPortada && history.length > 1) { e.preventDefault(); history.back(); }
+    } catch (err) {}
+  });
+
   /* Los enlaces internos van sin .html (andresgallego.com/sobre-mi). Abriendo la web desde el ordenador (file://) eso no funciona,
      así que solo en ese caso se les vuelve a poner el .html (o index.html a las carpetas). En la web publicada no hace nada. */
   if (location.protocol === "file:") {

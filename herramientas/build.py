@@ -120,7 +120,7 @@ def nav(cur, key):
     </div>
   </div>
   <div class="nav-pill">
-    {a("nav-tl", u("index"), "Home", "h")}
+    {a("nav-tl", ("#trabajos" if key == "index" else u("index") + "#trabajos"), t("Proyectos", "Work"), "h")}
     {a("nav-tr", u("about"), t("Sobre mí", "About"), "s")}
     {a("nav-bl", u("personal"), "Personal", "x")}
     {a("nav-br", ("#contacto" if key in ("index", "about", "personal") else u("index") + "#contacto"), t("Contacto", "Contact"), "c")}
@@ -418,7 +418,7 @@ def caso(key, sub, meta, secciones, siguiente):
         body += f'<section class="{cls}"><div class="cs-wrap"><h2>{titulo}</h2>\n{cont}\n</div></section>\n'
     nx = P[siguiente]
     return head(key, p["titulo"] + " · Andrés Gallego", sub) + nav("h", key) + f"""<main id="main" class="page">
-<header class="cs-hero"><h1>{p['titulo']}</h1><p class="sub">{sub}</p></header>
+<header class="cs-hero"><a class="volver" href="{u('index')}" aria-label="{t('Volver a proyectos', 'Back to work')}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5.5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><h1>{p['titulo']}</h1><p class="sub">{sub}</p></header>
 <div class="cs-portada">{media(p['img'], p['portada'], '16 / 9')}</div>
 <dl class="cs-meta">{m}</dl>
 {body}<a class="siguiente" href="{u(siguiente)}"><small>{t("Siguiente proyecto", "Next project")}</small><span>{nx['titulo']} →</span></a>

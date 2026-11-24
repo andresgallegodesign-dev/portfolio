@@ -1075,3 +1075,14 @@ main:has(.contacto) + .pie { background: var(--fondito); border-top: 0; padding-
 .cierre-gris:has(.cierre__musica) { padding-bottom: clamp(8px, 1.2vw, 16px); }
 .cierre-gris + .musica { padding-top: clamp(24px, 3vw, 40px); }
 @media (min-width: 901px) { .cierre-gris:has(.cierre__musica) { padding-top: clamp(24px, 2.5vw, 36px); } }
+
+/* Casos de estudio: botón discreto para volver a los proyectos (mismo trazo a mano que los botones redondos de la cabecera) */
+.volver { position: relative; isolation: isolate; display: inline-grid; place-items: center; width: 44px; height: 44px; margin: 0 auto clamp(20px, 2.5vw, 32px); color: var(--negro); border-radius: 50%; }
+.volver::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; border: 1.5px solid rgba(33, 36, 39, 0.5); background: transparent; filter: url(#trazo); transition: background .2s ease; }
+.volver svg { width: 20px; height: 20px; transition: transform .25s ease; }
+.volver:hover::before, .volver:focus-visible::before { background: rgba(33, 36, 39, 0.06); }
+.volver:hover svg, .volver:focus-visible svg { transform: translateX(-3px); }
+.volver:focus-visible { outline: 2px solid var(--negro); outline-offset: 4px; }
+.cs-hero .volver { display: grid; }
+@media (max-width: 800px) { .volver::before { filter: url(#trazo-fino); } }
+@media (prefers-reduced-motion: reduce) { .volver svg { transition: none; } }
