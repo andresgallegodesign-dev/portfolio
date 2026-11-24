@@ -1061,3 +1061,17 @@ main:has(.contacto) + .pie { background: var(--fondito); border-top: 0; padding-
 .enlace-cv .enlace-cv__ico { width: 20px; height: 20px; flex: none; margin-right: 10px; transition: transform .25s ease; }
 .enlace-cv:hover .enlace-cv__ico, .enlace-cv:focus-visible .enlace-cv__ico { transform: translateY(2px); }
 @media (prefers-reduced-motion: reduce) { .enlace-cv .enlace-cv__ico { transition: none; } }
+
+/* Cierre de Sobre mí: personaje con radiocasete; las líneas de sonido de los lados se mueven al ritmo, como si sonara música (sin cambiar la opacidad) */
+.cierre-gris .cierre__musica { position: relative; width: clamp(170px, 19vw, 230px); aspect-ratio: 521 / 536; max-width: 100%; margin-bottom: 0; }
+.cierre__musica img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.cierre__onda { will-change: transform; animation: onda-izq 0.9s ease-in-out infinite; }
+.cierre__onda--izq { transform-origin: 16% 50%; }
+.cierre__onda--der { transform-origin: 82% 61%; animation-name: onda-der; animation-delay: -0.45s; }
+@keyframes onda-izq { 0%, 100% { transform: translateX(0) scale(1); } 50% { transform: translateX(-3%) scale(1.08); } }
+@keyframes onda-der { 0%, 100% { transform: translateX(0) scale(1); } 50% { transform: translateX(3%) scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .cierre__onda { animation: none; } }
+/* Menos aire entre la ilustración y el texto de la música */
+.cierre-gris:has(.cierre__musica) { padding-bottom: clamp(8px, 1.2vw, 16px); }
+.cierre-gris + .musica { padding-top: clamp(24px, 3vw, 40px); }
+@media (min-width: 901px) { .cierre-gris:has(.cierre__musica) { padding-top: clamp(24px, 2.5vw, 36px); } }

@@ -260,8 +260,7 @@ def sobre():
       <p>{t("Nací en Colombia y vivo en Madrid desde los nueve años, así que suelo decir que soy colombiano de Carabanchel y Moratalaz.", "I was born in Colombia and have lived in Madrid since I was nine, so I like to say I’m a Colombian from Carabanchel and Moratalaz.")}</p>
       <p>{t("Estudié artes gráficas y mis inicios en el diseño fueron en el mundo editorial. Con el tiempo me entró la curiosidad por la parte más creativa de los proyectos y me encaminé hacia la dirección de arte y el diseño gráfico.", "I studied graphic arts and started out in editorial design. Over time my curiosity pulled me towards the more creative side of projects, and I moved into art direction and graphic design.")}</p>
       <p>{t("Tras ocho años en publicidad y marketing, decidí lanzarme a una nueva aventura: el producto digital UX/UI. Allí aprovecho toda mi experiencia previa en diseño para crear experiencias de interacción y resolver problemas reales.", "After eight years in advertising and marketing, I decided to take on a new adventure: digital product design, UX/UI. There I bring all my previous design experience to interaction design and problem solving.")}</p>
-      <p>{t("Ahora, en plena era de la IA, sigo aprendiendo todo lo que puedo sobre nuevos procesos, herramientas y tecnologías, e incorporándolos a mi forma de trabajar.", "These days, in the age of AI, I keep learning as much as I can about new processes, tools and technologies, and bringing them into the way I work.")}</p>
-      <p>{t("Actualmente estoy en búsqueda de trabajo y abierto a nuevas oportunidades. <a href=\"#contacto\">Hablemos →</a>", "I’m currently looking for work and open to new opportunities. <a href=\"#contacto\">Let’s talk →</a>")}</p>
+      <p>{t("Trabajo con IA como una herramienta más del proceso: me ayuda a explorar opciones, prototipar en código real y validar ideas más rápido, sin perder el criterio de diseño. Este portfolio lo he construido así, iterando cada detalle hasta publicarlo.", "I work with AI as one more tool in the process: it helps me explore options, prototype in real code and validate ideas faster, without losing design judgement. I built this portfolio that way, iterating every detail until it went live.")}</p>
     </div>
     <a class="enlace-cv" href="{PRE}{cv}" target="_blank" rel="noopener"><svg class="enlace-cv__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{t("Descargar currículum", "Download CV")}</a>
     <img class="dibujo bio__skate" src="{PRE}assets/img/pizza.webp" alt="" aria-hidden="true">
@@ -290,18 +289,14 @@ def sobre():
 {paradas}        <li class="parada parada--siguiente" data-year="{t("Hoy", "Today")}">
           <span class="parada__punto" aria-hidden="true"></span>
           <p class="parada__tipo">{t("Próxima parada", "Next stop")}</p>
-          <h3 class="parada__rol">{t("¿Tu equipo?", "Your team?")}</h3>
-          <p class="parada__lugar">{t("Buscando una nueva aventura profesional", "Looking for a new professional adventure")}</p>
-          <p class="parada__fechas"><a href="#contacto">{t("Hablemos", "Let’s talk")} →</a></p>
+          <h3 class="parada__rol">{t("¿Tu equipo?", "Your team?")}</h3>          <p class="parada__fechas"><a href="#contacto">{t("Hablemos", "Let’s talk")} →</a></p>
         </li>
       </ol>
     </div>
   </div>
 </section>
 <section class="cierre-gris">
-  <img class="cierre__dibujo" src="{PRE}assets/img/puerta.webp" alt="{t("Ilustración de una figura empujando una puerta con marcos que se repiten", "Illustration of a figure pushing a door with nested frames")}" width="{BW}" height="{BH}">
-  <p class="cierre">{t("Actualmente en busca de una aventura profesional que me permita seguir creciendo y desarrollando mis habilidades en productos digitales.", "I’m currently looking for a professional adventure that lets me keep growing and developing my skills in digital products.")}</p>
-</section>
+  <div class="cierre__dibujo cierre__musica" role="img" aria-label="{t("Ilustración de un personaje con un radiocasete por cabeza, con la música sonando", "Illustration of a character with a boombox for a head, with music playing")}"><img src="{PRE}assets/img/musica-andres.webp" alt="" width="521" height="536"><img class="cierre__onda cierre__onda--izq" src="{PRE}assets/img/musica-onda-izq.webp" alt="" width="521" height="536"><img class="cierre__onda cierre__onda--der" src="{PRE}assets/img/musica-onda-der.webp" alt="" width="521" height="536"></div></section>
 {musica()}
 {contacto()}
 </main>
