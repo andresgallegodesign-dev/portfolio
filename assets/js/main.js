@@ -226,8 +226,11 @@
       }
       K.raf = requestAnimationFrame(pasoK);
     }
+    /* La ilustración que se ve: en móvil y tablet, la de la foto; en escritorio, la que acompaña a la biografía (la de la foto va oculta y mide 0) */
+    var skateBio = document.querySelector(".bio__skate");
+    function figuraK() { return (skate.offsetWidth || !skateBio) ? skate : skateBio; }
     function sueltaK() {
-      var r = skate.getBoundingClientRect();
+      var r = figuraK().getBoundingClientRect();
       /* tamaño proporcional a la figura (la tabla ocupa ≈ un tercio de su alto) y sale de donde la sujeta */
       var H = Math.max(60, r.height * 0.42);
       var cx = r.left + r.width * 0.4, cy = Math.max(70 + H / 2, r.top + r.height * 0.66);
@@ -237,24 +240,27 @@
         p.w = H * p.t.w; p.h = H * p.t.h;
         p.el.style.width = p.w.toFixed(1) + "px"; p.el.style.height = p.h.toFixed(1) + "px";
         p.x = cx + p.dx * H - p.w / 2; p.y = cy + p.dy * H - p.h / 2; p.r = 0;
-        if (i === 0) { p.vx = dir * (80 + Math.random() * 80) * fuerza; p.vy = -80; p.vr = dir * (90 + Math.random() * 110); }
-        else {
-          /* las piezas salen despedidas hacia fuera desde donde estaban montadas */
-          var lado = p.dx ? Math.sign(p.dx) : (Math.random() < 0.5 ? -1 : 1);
-          p.vx = (lado * (60 + Math.random() * 160) + dir * 40) * fuerza;
-          p.vy = -(150 + Math.random() * 300);
-          p.vr = lado * (200 + Math.random() * 400);
-        }
+        /* se le resbala de la mano: todo el conjunto cae junto, casi recto y con un leve giro; las piezas se sueltan unas de otras al rebotar en el suelo */
+        if (i === 0) { K.vx0 = dir * (35 + Math.random() * 35) * fuerza; K.vr0 = dir * (35 + Math.random() * 45); p.vx = K.vx0; p.vy = 0; p.vr = K.vr0; }
+        else { p.vx = K.vx0 + (Math.random() - 0.5) * 50 * fuerza; p.vy = Math.random() * 40; p.vr = K.vr0 + (Math.random() - 0.5) * 140; }
         p.quieto = 0; p.parado = false; pintaK(p);
       });
       K.lanzado = true; muestraK(); arrancaK();
     }
     window.addEventListener("scroll", function () {
       if (calma.matches) return;
-      var y = window.scrollY;
-      if (y > 90 && !K.lanzado) sueltaK();
-      if (y < 20 && K.lanzado) { K.lanzado = false; clearTimeout(K.fin); cancelAnimationFrame(K.raf); K.raf = 0; ocultaK(); }
+      var y = window.scrollY, fig = figuraK(), r = fig.getBoundingClientRect();
+      if (fig === skate) {
+        /* móvil y tablet: se desmonta al empezar a hacer scroll */
+        if (y > 90 && !K.lanzado) sueltaK();
+        if (y < 20 && K.lanzado) reiniciaK();
+      } else {
+        /* escritorio: se desmonta cuando el scroll llega a la animación, y se vuelve a armar al subir por encima de ella */
+        if (!K.lanzado && (r.top + r.height / 2) < window.innerHeight * 0.55 && r.bottom > 90) sueltaK();
+        if (K.lanzado && (y < 20 || (r.top + r.height / 2) > window.innerHeight * 0.85)) reiniciaK();
+      }
     }, { passive: true });
+    function reiniciaK() { K.lanzado = false; clearTimeout(K.fin); cancelAnimationFrame(K.raf); K.raf = 0; ocultaK(); }
   }
 
   /* Personal: tras el scroll, todas las piezas de la ilustración del título se sueltan, caen, rebotan y se desvanecen. */

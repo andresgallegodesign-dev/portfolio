@@ -196,7 +196,7 @@ def index():
   <div class="intro__inner">
     <img class="intro__dibujo" src="{PRE}assets/img/patin.webp" alt="{t("Ilustración animada de un chico de pie sujetando un monopatín", "Animated illustration of a boy standing and holding a skateboard")}" width="400" height="508">
     <div class="intro__texto">
-      <p>{t("Madrileño y colombiano. Me mueven la empatía y el cariño por los detalles: creo que un buen producto se nota en lo pequeño.", "Colombian born, Madrid raised. I’m driven by empathy and a love for the details: I believe a good product shows in the small things.")}</p>
+      <p>{t("Diseño productos digitales con empatía y cariño por los detalles: creo que un buen producto se nota en lo pequeño.", "I design digital products with empathy and a love for the details: I believe a good product shows in the small things.")}</p>
       <p>{t("Estos son mis últimos trabajos.", "These are my latest projects.")}</p>
     </div>
   </div>
