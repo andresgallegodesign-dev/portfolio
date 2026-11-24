@@ -7,6 +7,19 @@
   var DISCOS_URL = "assets/data/discos.json";
   try { if (document.currentScript && document.currentScript.src) DISCOS_URL = new URL("../data/discos.json", document.currentScript.src).href; } catch (e) {}
 
+  /* Los enlaces internos van sin .html (andresgallego.com/sobre-mi). Abriendo la web desde el ordenador (file://) eso no funciona,
+     así que solo en ese caso se les vuelve a poner el .html (o index.html a las carpetas). En la web publicada no hace nada. */
+  if (location.protocol === "file:") {
+    document.querySelectorAll("a[href]").forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (!h || /^(#|[a-z]+:|\/\/)/i.test(h) || /^assets\//.test(h.replace(/^(\.\.\/)+/, ""))) return;
+      var i = h.indexOf("#"), ruta = i < 0 ? h : h.slice(0, i), ancla = i < 0 ? "" : h.slice(i);
+      if (/\/$/.test(ruta) || ruta === "." || ruta === "..") ruta = ruta.replace(/\/?$/, "/") + "index.html";
+      else if (!/\.[a-z0-9]+$/i.test(ruta.split("/").pop())) ruta += ".html";
+      a.setAttribute("href", ruta + ancla);
+    });
+  }
+
   /* Imágenes: si el archivo no existe, se muestra un marcador con el nombre que debe tener. */
   document.querySelectorAll(".media__box").forEach(function (box) {
     var img = box.querySelector("img");

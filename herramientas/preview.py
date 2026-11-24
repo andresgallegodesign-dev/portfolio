@@ -8,7 +8,16 @@ GF='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken
 def fix(s):
     s=re.sub(r'\n<link rel="stylesheet" href="https://api.fontshare.com/v2/css\?f\[\]=cabinet-grotesk[^>]*>','',s)
     s=s.replace('<link rel="preconnect" href="https://api.fontshare.com">\n','')
-    return re.sub(r'<link rel="stylesheet" href="https://api.fontshare.com[^>]*>',GF,s)
+    s=re.sub(r'<link rel="stylesheet" href="https://api.fontshare.com[^>]*>',GF,s)
+    # La web enlaza sin .html (andresgallego.com/sobre-mi); el Artifact no entiende esas direcciones, así que aquí se les devuelve el .html
+    def con_html(m):
+        h=m.group(1)
+        if not h or re.match(r'(#|[a-z]+:|//)',h,re.I) or re.sub(r'^(\.\./)+','',h).startswith('assets/'): return m.group(0)
+        ruta,_,ancla=h.partition('#'); ancla=('#'+ancla) if ancla or h.endswith('#') else ''
+        if ruta.endswith('/') or ruta in ('.','..'): ruta=ruta.rstrip('/')+'/index.html'
+        elif not re.search(r'\.[a-z0-9]+$',ruta.split('/')[-1],re.I): ruta+='.html'
+        return 'href="'+ruta+ancla+'"'
+    return re.sub(r'href="([^"]*)"',con_html,s)
 os.makedirs(P+"/en",exist_ok=True)
 for f in glob.glob(SRC+"/*.html")+glob.glob(SRC+"/en/*.html"):
     rel=os.path.relpath(f,SRC); s=fix(open(f).read())

@@ -21,15 +21,20 @@ FILES = {
     "hub":      {"es": "hub-imagenes.html",       "en": "central-image-hub.html"},
     "alerts":   {"es": "alertas-favoritos.html",  "en": "alerts-favourites.html"},
 }
-def f(key): return FILES[key][L]
+def f(key): return FILES[key][L]   # nombre del archivo que se escribe (con .html)
+def limpia(key, lang):
+    """Dirección sin .html (GitHub Pages sirve /sobre-mi como sobre-mi.html); la portada es la carpeta."""
+    return "" if key == "index" else FILES[key][lang][:-len(".html")]
+def u(key):
+    """Enlace limpio a una página del idioma actual, relativo a la página en la que estamos."""
+    return limpia(key, L) or "./"
 def abs_url(key, lang):
-    """URL absoluta de una página en un idioma."""
-    if key == "index": return SITE + ("/" if lang == "es" else "/en/")
-    return SITE + ("/" if lang == "es" else "/en/") + FILES[key][lang]
+    """URL absoluta (limpia) de una página en un idioma."""
+    return SITE + ("/" if lang == "es" else "/en/") + limpia(key, lang)
 
 def other_url(key):
-    """Enlace a la misma página en el otro idioma."""
-    return "en/" + FILES[key]["en"] if L == "es" else "../" + FILES[key]["es"]
+    """Enlace (limpio) a la misma página en el otro idioma."""
+    return "en/" + limpia(key, "en") if L == "es" else "../" + limpia(key, "es")
 
 def ldjson(key):
     if key not in ("index", "about"): return ""
@@ -104,10 +109,10 @@ def nav(cur, key):
     lang_href = other_url(key)
     return f"""<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="trazo" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter><filter id="trazo-fino" x="-12%" y="-50%" width="124%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.08" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter><filter id="trazo-card" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter></svg>
 <nav class="site-nav" aria-label="{t("Principal", "Main")}">
-  <a class="nav-name" href="{f("index")}">Andrés Gallego</a>
+  <a class="nav-name" href="{u("index")}">Andrés Gallego</a>
   <a class="nav-lang" href="{lang_href}" hreflang="{lang_code}" lang="{lang_code}" aria-label="{lang_lbl}">{lang_txt}</a>
   <div class="m-cabecera">
-    <a class="m-id" href="{f("index")}"><span class="m-foto"><img src="{PRE}assets/img/andres.jpg" alt=""></span><span class="m-nombre">Andrés Gallego</span></a>
+    <a class="m-id" href="{u("index")}"><span class="m-foto"><img src="{PRE}assets/img/andres.jpg" alt=""></span><span class="m-nombre">Andrés Gallego</span></a>
     <div class="m-acciones">
       <a class="m-btn" href="mailto:andresgallego.design@gmail.com" aria-label="{t("Enviar un email a Andrés", "Email Andrés")}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></a>
       <a class="m-btn" href="https://www.linkedin.com/in/andres-gallego/" target="_blank" rel="noopener" aria-label="{t("LinkedIn de Andrés", "Andrés on LinkedIn")}"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M5.2 9.2h3.1V19H5.2zM6.75 4.6a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.4 9.2h3v1.35h.04c.42-.8 1.45-1.65 2.98-1.65 3.18 0 3.77 2.1 3.77 4.8V19h-3.1v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V19h-3.1z"/></svg></a>
@@ -115,10 +120,10 @@ def nav(cur, key):
     </div>
   </div>
   <div class="nav-pill">
-    {a("nav-tl", f("index"), "Home", "h")}
-    {a("nav-tr", f("about"), t("Sobre mí", "About"), "s")}
-    {a("nav-bl", f("personal"), "Personal", "x")}
-    {a("nav-br", ("#contacto" if key in ("index", "about", "personal") else f("index") + "#contacto"), t("Contacto", "Contact"), "c")}
+    {a("nav-tl", u("index"), "Home", "h")}
+    {a("nav-tr", u("about"), t("Sobre mí", "About"), "s")}
+    {a("nav-bl", u("personal"), "Personal", "x")}
+    {a("nav-br", ("#contacto" if key in ("index", "about", "personal") else u("index") + "#contacto"), t("Contacto", "Contact"), "c")}
   </div>
 </nav>
 """
@@ -176,7 +181,7 @@ def index():
       <div class="card__texto">
         <div>
           <p class="card__meta">{p['empresa']} · {p['ano']}</p>
-          <h2><a class="card__link" href="{f(p['key'])}">{p['titulo']}</a></h2>
+          <h2><a class="card__link" href="{u(p['key'])}">{p['titulo']}</a></h2>
         </div>
         <ul class="card__tags" style="list-style:none;padding:0;margin:0">{tags}</ul>
         <span class="btn" aria-hidden="true">{t("Ver proyecto", "View project")}</span>
@@ -190,7 +195,7 @@ def index():
   <img class="dibujo dibujo--hero" data-balon="{PRE}assets/img/cabeza.png" src="{PRE}assets/img/cabezon.webp" alt="{t("Ilustración animada de una cabeza apoyada sobre un libro abierto", "Animated illustration of a head resting on an open book")}">
   <h1>{t("¡Hola! Soy Andrés. Product designer.", "Hi! I’m Andrés. Product designer.")}</h1>
   <p class="hero__sub">{t("Más de 4 años en producto digital y 15 en diseño.", "Over 4 years in digital product and 15 in design.")}</p>
-  <p class="hero__ctas"><a href="#trabajos">{t("Ver proyectos", "See projects")}</a><a href="{FILES['about'][L]}">{t("Saber más de mí", "More about me")}</a></p>
+  <p class="hero__ctas"><a href="#trabajos">{t("Ver proyectos", "See projects")}</a><a href="{u('about')}">{t("Saber más de mí", "More about me")}</a></p>
 </header>
 <section class="intro" aria-label="{t("Presentación", "Introduction")}">
   <div class="intro__inner">
@@ -421,7 +426,7 @@ def caso(key, sub, meta, secciones, siguiente):
 <header class="cs-hero"><h1>{p['titulo']}</h1><p class="sub">{sub}</p></header>
 <div class="cs-portada">{media(p['img'], p['portada'], '16 / 9')}</div>
 <dl class="cs-meta">{m}</dl>
-{body}<a class="siguiente" href="{f(siguiente)}"><small>{t("Siguiente proyecto", "Next project")}</small><span>{nx['titulo']} →</span></a>
+{body}<a class="siguiente" href="{u(siguiente)}"><small>{t("Siguiente proyecto", "Next project")}</small><span>{nx['titulo']} →</span></a>
 </main>
 """ + foot()
 
