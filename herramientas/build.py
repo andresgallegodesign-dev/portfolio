@@ -258,7 +258,7 @@ def sobre():
       <p>{t("Ahora, en plena era de la IA, sigo aprendiendo todo lo que puedo sobre nuevos procesos, herramientas y tecnologías, e incorporándolos a mi forma de trabajar.", "These days, in the age of AI, I keep learning as much as I can about new processes, tools and technologies, and bringing them into the way I work.")}</p>
       <p>{t("Actualmente estoy en búsqueda de trabajo y abierto a nuevas oportunidades. <a href=\"#contacto\">Hablemos →</a>", "I’m currently looking for work and open to new opportunities. <a href=\"#contacto\">Let’s talk →</a>")}</p>
     </div>
-    <a class="enlace-cv" href="{PRE}{cv}" target="_blank" rel="noopener">{t("Descargar currículum", "Download CV")}</a>
+    <a class="enlace-cv" href="{PRE}{cv}" target="_blank" rel="noopener"><svg class="enlace-cv__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{t("Descargar currículum", "Download CV")}</a>
     <img class="dibujo bio__skate" src="{PRE}assets/img/pizza.webp" alt="" aria-hidden="true">
   </div>
 </section>

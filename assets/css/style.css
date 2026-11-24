@@ -985,8 +985,8 @@ body .hero .hero__sub { font-size: var(--fs-lg); line-height: 1.55; margin-top: 
 .sobre__cab { grid-template-columns: minmax(0, 1fr); justify-items: center; }
 .retrato { width: min(340px, 100%); }
 .bio .enlace-cv { margin-top: 36px; color: #fff; }
-.bio .enlace-cv::before { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.55); }
-.bio .enlace-cv:hover::before { background: rgba(255, 255, 255, 0.2); }
+.bio .enlace-cv::before { background: transparent; border-color: rgba(255, 255, 255, 0.55); transition: background .2s ease; }
+.bio .enlace-cv:hover::before, .bio .enlace-cv:focus-visible::before { background: rgba(255, 255, 255, 0.12); }
 
 /* Sobre mí: todo en negro; en escritorio la animación va a la izquierda del texto */
 .sobre-bloque { background: var(--negro); }
@@ -1038,10 +1038,26 @@ main:has(.contacto) + .pie { background: var(--fondito); border-top: 0; padding-
 .musica .musica__otra { margin-top: 56px; color: #fff; cursor: pointer; }
 .musica .musica__otra[hidden] { display: none; }
 .musica .musica__otra::after { display: none; }
-.musica .musica__otra::before { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.55); }
-.musica .musica__otra:hover::before { background: rgba(255, 255, 255, 0.2); }
+.musica .musica__otra::before { background: transparent; border-color: rgba(255, 255, 255, 0.55); transition: background .2s ease; }
+.musica .musica__otra:hover::before, .musica .musica__otra:focus-visible::before { background: rgba(255, 255, 255, 0.12); }
 .musica .musica__otra .musica__otra-ico { width: 20px; height: 20px; flex: none; margin-right: 10px; }
 .musica .musica__otra.girando .musica__otra-ico { animation: otra-gira .65s cubic-bezier(.3,.8,.3,1); }
 @keyframes otra-gira { to { transform: rotate(360deg); } }
 .musica .musica__otra:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { .discos { transition: none; } .musica .musica__otra.girando .musica__otra-ico { animation: none; } }
+
+/* Pista de que los discos se pueden sacar: el vinilo asoma un poco de la funda (al llegar a la sección, de vez en cuando y al pasar el ratón) */
+.disco.asoma .disco__vinilo { transform: translateX(18%); }
+.disco.asoma .disco__portada { transform: translateX(-2%) rotate(-1.5deg); }
+@media (hover: hover) {
+  .disco:not(.abierto) .disco__caja:hover .disco__vinilo { transform: translateX(18%); }
+}
+/* Al tocar (móvil) o pulsar, el vinilo empieza a salir antes de abrirse del todo */
+.disco:not(.abierto) .disco__caja:active .disco__vinilo { transform: translateX(18%); }
+@media (prefers-reduced-motion: reduce) { .disco.asoma .disco__vinilo, .disco.asoma .disco__portada { transform: none; } }
+
+/* Botón de currículum: icono de descarga delante y sin la flecha de hover; al pasar el ratón la flecha baja un poco */
+.bio .enlace-cv::after { display: none; }
+.enlace-cv .enlace-cv__ico { width: 20px; height: 20px; flex: none; margin-right: 10px; transition: transform .25s ease; }
+.enlace-cv:hover .enlace-cv__ico, .enlace-cv:focus-visible .enlace-cv__ico { transform: translateY(2px); }
+@media (prefers-reduced-motion: reduce) { .enlace-cv .enlace-cv__ico { transition: none; } }

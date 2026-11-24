@@ -550,6 +550,38 @@
     var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { carga(e.target); io.unobserve(e.target); } }); }, { rootMargin: "300px" }) : null;
     function activa(d) { enlaza(d); if (io) io.observe(d); else carga(d); }
     discos.forEach(activa);
+    /* Pista discreta de que los discos se pueden sacar: cada disco asoma de la funda la primera vez que el scroll lo trae a la pantalla (en móvil, uno a uno al bajar; en escritorio, por filas), y de vez en cuando uno de los que se ven vuelve a asomar. Todo se para en cuanto alguien abre un disco. */
+    var tocado = false, enVista = false, recordando = false, ioA = null;
+    function asoma(d, retraso) {
+      setTimeout(function () {
+        if (tocado || d.classList.contains("abierto")) return;
+        d.classList.add("asoma"); setTimeout(function () { d.classList.remove("asoma"); }, 700);
+      }, retraso || 0);
+    }
+    function ola() { if (tocado || !ioA) return; Array.prototype.forEach.call(lista.children, function (d) { d.__asomado = false; ioA.unobserve(d); ioA.observe(d); }); }
+    lista.addEventListener("click", function (e) { if (e.target.closest && e.target.closest(".disco__portada")) tocado = true; });
+    lista.addEventListener("touchstart", function () {}, { passive: true });  /* para que :active funcione al tocar en iPhone */
+    if (!calma.matches && "IntersectionObserver" in window) {
+      ioA = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting || e.target.__asomado) return;
+          e.target.__asomado = true;
+          asoma(e.target, 250 + (Array.prototype.indexOf.call(lista.children, e.target) % 2) * 170);
+          if (!recordando) {
+            recordando = true;
+            setInterval(function () {
+              if (tocado || !enVista || document.hidden) return;
+              var h = window.innerHeight, visibles = Array.prototype.filter.call(lista.children, function (d) {
+                var r = d.getBoundingClientRect(); return !d.classList.contains("abierto") && r.top > 60 && r.bottom < h - 20;
+              });
+              if (visibles.length) asoma(visibles[Math.floor(Math.random() * visibles.length)]);
+            }, 6500);
+          }
+        });
+      }, { rootMargin: "0px 0px -35% 0px" });
+      Array.prototype.forEach.call(lista.children, function (d) { ioA.observe(d); });
+      new IntersectionObserver(function (es) { enVista = es[0].isIntersecting; }).observe(lista);
+    }
     /* Botón juguetón: saca otra tanda de 6 discos (prefiriendo los que no se ven ahora) */
     var otra = document.querySelector(".musica__otra");
     if (otra && lista && typeof todos !== "undefined" && todos.length > MAX) {
@@ -578,7 +610,7 @@
           nuevos.forEach(function (li) { lista.appendChild(li); activa(li); });
           vez = (vez + 1) % frases.length; if (txt) txt.textContent = frases[vez];
           if (aviso) aviso.textContent = en ? "New selection of records" : "Nueva selección de discos";
-          lista.classList.remove("mezclando"); ocupado = false;
+          lista.classList.remove("mezclando"); ocupado = false; setTimeout(ola, 350);
         }, 260);
       });
     }
