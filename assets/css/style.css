@@ -2,8 +2,8 @@
    Concepto de layout: navegación en las cuatro esquinas, tarjetas grandes de color
    por proyecto y bloques de lectura estrechos en los casos de estudio.
 
-   TIPOGRAFÍAS: ahora se cargan Switzer (textos) y Cabinet Grotesk (menú, botones y nombre)
-   desde Fontshare, que son gratuitas también para uso comercial. Para cambiarlas basta con
+   TIPOGRAFÍA: solo Switzer (Fontshare) para todo el sitio; Libre Baskerville (Google Fonts) en acentos puntuales.
+   Switzer es gratuita también para uso comercial. Para cambiarla basta con
    editar las dos variables --font-texto y --font-ui (ver README.md, apartado "Tipografías"). */
 
 :root {
@@ -19,7 +19,7 @@
   --linea: rgba(33, 36, 39, 0.14);
 
   --font-texto: "Switzer", "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-ui: "Cabinet Grotesk", "Switzer", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Switzer", "Helvetica Neue", Arial, sans-serif;
 
   --edge: clamp(16px, 4vw, 60px);
   --gutter: clamp(20px, 5vw, 48px);
@@ -1030,3 +1030,18 @@ body .hero .hero__sub { font-size: var(--fs-lg); line-height: 1.55; margin-top: 
 /* Pie unido al bloque azul de "¡Hablemos!" (donde existe) */
 main:has(.contacto) + .pie { background: var(--fondito); border-top: 0; padding-top: 12px; }
 @media (max-width: 800px) { body main:has(.contacto) + .pie { padding-bottom: 96px; } }
+
+
+/* Música: botón para sacar otra tanda de discos (mismo estilo que "Descargar currículum") */
+.discos { transition: opacity .25s ease; }
+.discos.mezclando { opacity: 0; }
+.musica .musica__otra { margin-top: 56px; color: #fff; cursor: pointer; }
+.musica .musica__otra[hidden] { display: none; }
+.musica .musica__otra::after { display: none; }
+.musica .musica__otra::before { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.55); }
+.musica .musica__otra:hover::before { background: rgba(255, 255, 255, 0.2); }
+.musica .musica__otra .musica__otra-ico { width: 20px; height: 20px; flex: none; margin-right: 10px; }
+.musica .musica__otra.girando .musica__otra-ico { animation: otra-gira .65s cubic-bezier(.3,.8,.3,1); }
+@keyframes otra-gira { to { transform: rotate(360deg); } }
+.musica .musica__otra:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .discos { transition: none; } .musica .musica__otra.girando .musica__otra-ico { animation: none; } }

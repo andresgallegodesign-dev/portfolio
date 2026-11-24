@@ -35,7 +35,7 @@ Para añadir o cambiar una canción, copia un `<li class="disco">` y cambia:
 Si una canción no carga, abre la consola del navegador y busca avisos que empiecen por `[música]`. Suele bastar con ajustar `data-term` y `data-titulo`. Los resultados se guardan 7 días en el navegador.
 
 ## Tipografías
-Ahora: Switzer (texto) y Cabinet Grotesk (menú, botones, titulares) desde Fontshare. Para usar PP Neue: sube los WOFF2 a `assets/fonts/`, añade `@font-face` en `style.css` y cambia `--font-texto` y `--font-ui`. Comprueba antes que tu licencia cubre uso web.
+Ahora: Solo Switzer (todo el sitio) desde Fontshare. Para usar PP Neue: sube los WOFF2 a `assets/fonts/`, añade `@font-face` en `style.css` y cambia `--font-texto` y `--font-ui`. Comprueba antes que tu licencia cubre uso web.
 
 ## Publicar gratis (GitHub Pages)
 1. Crea un repositorio en GitHub y sube esta carpeta.
@@ -49,3 +49,9 @@ Cada página lleva título, descripción, URL canónica, `hreflang` (es/en), Ope
 ## Pendiente
 - Caso Farmeneur.
 - Optimizar imágenes pesadas (`pizza.webp`, `andres.jpg`) solo si se puede sin perder calidad.
+
+## Música (discos)
+
+Las carátulas y los fragmentos de audio de las canciones están guardados en `assets/data/discos.json` (clave = `data-term` de cada canción en `build.py`). La web lee ese archivo y carga al instante, sin consultar a Apple en cada visita. Si algún audio dejara de funcionar, `main.js` hace una búsqueda en vivo en iTunes como plan B.
+
+Para cambiar una canción: edita `CANCIONES` en `build.py` y añade su entrada en `discos.json` (título, preview `p` y carátula `a` de la API de iTunes: `https://itunes.apple.com/search?media=music&entity=song&term=...`).
