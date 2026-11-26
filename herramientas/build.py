@@ -158,13 +158,16 @@ def proyectos():
     return [
         dict(key="fz", titulo=t("Pagos de FarmerZone", "FarmerZone Payouts"), empresa="CrowdFarming", ano="2024",
              bg="#DFEBE9", oscuro=False, tags=["B2B Design", "Partner Portal"], img="farmerzone-portada.webp",
-             portada=t("Portada de Pagos de FarmerZone", "Cover of FarmerZone Payouts")),
+             portada=t("Portada de Pagos de FarmerZone", "Cover of FarmerZone Payouts"),
+             resumen=t("Cada mes, los agricultores recibían un Excel tan complejo que necesitaba un tutorial en YouTube. Lo convertimos en una sección de pagos clara, con trazabilidad de cada pedido hasta su pago.", "Every month, farmers received a spreadsheet so complex it needed a YouTube tutorial. We turned it into a clear payouts section that traces every order to its payment.")),
         dict(key="hub", titulo=t("Un hub central para las imágenes de los proyectos", "A central hub for project images"), empresa="CrowdFarming", ano="2025",
              bg="#F2ECE1", oscuro=False, tags=["CMS", "B2B Design"], img="hub-imagenes-portada.webp",
-             portada=t("Portada del hub de imágenes", "Cover of the project image hub")),
+             portada=t("Portada del hub de imágenes", "Cover of the project image hub"),
+             resumen=t("Publicar un proyecto obligaba a elegir y ordenar sus imágenes a mano, fuera del back office. Diseñé un único lugar para gestionarlas, con su texto alternativo en 7 idiomas.", "Publishing a project meant choosing and ordering its images by hand, outside the back office. I designed a single place to manage them, with alt text in 7 languages.")),
         dict(key="alerts", titulo=t("Alertas, favoritos y búsquedas guardadas", "Alerts, favourites and saved searches"), empresa="Astara Store", ano="2023",
              bg="#212427", oscuro=True, tags=["B2C Design", "Search and Discovery"], img="alertas-portada.webp",
-             portada=t("Portada de Alertas, favoritos y búsquedas guardadas", "Cover of Alerts, favourites and saved searches")),
+             portada=t("Portada de Alertas, favoritos y búsquedas guardadas", "Cover of Alerts, favourites and saved searches"),
+             resumen=t("Comprar un coche es una decisión larga y meditada. Diseñé favoritos, búsquedas guardadas y alertas para que encontrar el coche ideal no fuera empezar de cero cada vez.", "Buying a car is a long, considered decision. I designed favourites, saved searches and alerts so that finding the right car didn’t mean starting from scratch every time.")),
     ]
 
 from PIL import Image as _I
@@ -182,6 +185,7 @@ def index():
         <div>
           <p class="card__meta">{p['empresa']} · {p['ano']}</p>
           <h2><a class="card__link" href="{u(p['key'])}">{p['titulo']}</a></h2>
+          <p class="card__resumen">{p['resumen']}</p>
         </div>
         <ul class="card__tags" style="list-style:none;padding:0;margin:0">{tags}</ul>
         <span class="btn" aria-hidden="true">{t("Ver proyecto", "View project")}</span>
