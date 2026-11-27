@@ -128,9 +128,10 @@ def nav(cur, key):
 </nav>
 """
 
-def media(file, alt, ratio="16 / 10", cap=None, cls=""):
+def media(file, alt, ratio="16 / 10", cap=None, cls="", style=""):
     fc = f"<figcaption>{cap}</figcaption>" if cap else ""
-    return (f'<figure class="media {cls}"><div class="media__box" style="--ratio:{ratio}">'
+    st = f' style="{style}"' if style else ""
+    return (f'<figure class="media {cls}"{st}><div class="media__box" style="--ratio:{ratio}">'
             f'<img src="{PRE}assets/img/{file}" alt="{alt}" loading="lazy"></div>{fc}</figure>')
 
 def duo(a, b): return f'<div class="duo">{a}{b}</div>'
@@ -383,6 +384,15 @@ def personal():
         g += "  " + media(fl, alt, ratio, cls="media--m" if m else "") + "\n"
     g += ('  <div class="fila-par">' + media("personal/crane.webp", t("Ilustración en viñetas", "Comic-style panel illustration"), "1080 / 1363", cls="par-a")
           + media("personal/cuarentena.webp", t("Cuarentena", "Quarantine"), "2000 / 1333", cls="par-b") + '</div>\n')
+    # Parejas con la misma altura: cada imagen ocupa en proporción a su ancho/alto
+    def pareja(a, b):
+        def fig(fl, alt, w, h): return media("personal/" + fl, alt, f"{w} / {h}", style=f"flex: {w/h:.4f} 1 0")
+        return '  <div class="fila-par">' + fig(*a) + fig(*b) + '</div>\n'
+    g += pareja(("skate-pantalla.webp", t("Chico con monopatín saliendo de la pantalla de un móvil", "Boy with a skateboard stepping out of a phone screen"), 1200, 1200),
+                ("letra-h.webp", t("Letra H construida con formas de colores sobre fondo oscuro", "Letter H built from colourful shapes on a dark background"), 800, 600))
+    g += "  " + media("personal/yorokobu-skatepark.webp", t("Portada para Yorokobu con un skatepark isométrico y contraportada de Volkswagen", "Yorokobu cover with an isometric skatepark and Volkswagen back cover"), "1920 / 1280") + "\n"
+    g += pareja(("leo-luego-pienso.webp", t("Ilustración «Leo, luego pienso»: dos personas leyendo", "“Leo, luego pienso” illustration: two people reading"), 752, 564),
+                ("leo-luego-pienso-mupi.webp", t("Cartel «Leo, luego pienso» del Mes del Libro 2019 en un mupi", "“Leo, luego pienso” Book Month 2019 poster on a street billboard"), 1300, 790))
     proyectos_vis = [
         ("visual-keepgoing.webp", "Keepgoing", t("Packaging", "Packaging"), t("Envase de la barrita EnergyBar de chocolate y avellana de Keepgoing", "Keepgoing EnergyBar chocolate hazelnut pack"), "https://www.behance.net/gallery/127960447/Keepgoing"),
         ("visual-carme-pinos.webp", t("Exposición Carme Pinós", "Carme Pinós exhibition"), t("Museo ICO · 2020", "Museo ICO · 2020"), t("Cartel tipográfico de la exposición Carme Pinós. Máquinas en el entorno, Museo ICO", "Typographic poster for the exhibition Carme Pinós. Machines in the landscape, Museo ICO"), "https://www.behance.net/gallery/109660359/Exposicion-Carme-Pinos"),
