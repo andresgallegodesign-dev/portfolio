@@ -1090,5 +1090,3 @@ main:has(.contacto) + .pie { background: var(--fondito); border-top: 0; padding-
 /* Tarjetas de proyecto: una frase que da pie a lo que hay dentro del caso */
 .card__resumen { margin: 18px 0 0; max-width: 46ch; font-size: var(--fs-sm); line-height: 1.55; opacity: 0.8; text-wrap: pretty; }
 @media (max-width: 800px) { .card__resumen { margin-top: 12px; } }
-/* Coche junto al chico de espaldas (cuadrado, más alto): centrado en vertical en escritorio */
-@media (min-width: 561px) { .galeria .media:has(img[src*="coche"]) { align-self: center; } }

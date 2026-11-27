@@ -370,31 +370,9 @@ def musica():
 
 # ---------------- Personal ----------------
 def personal():
-    items = [("personal/guitarsman.webp", t("Guitarrista en amarillo", "Guitarist on a yellow background"), "1 / 1", True),
-             ("personal/k3.webp", t("Tres guitarristas en azul y amarillo", "Three guitarists in blue and yellow"), "1 / 1", True),
-             ("personal/camiseta.webp", t("Camisetas de la marca Suerte le digo", "T-shirts for the brand Suerte le digo"), "1 / 1", False),
-             ("personal/closeup.webp", t("Detalle del estampado Suerte", "Close-up of the Suerte print"), "1 / 1", True),
-             ("personal/detalle-talla.webp", t("Etiqueta Suerte le digo, est. 2020", "Suerte le digo neck label, est. 2020"), "1 / 1", True),
-             ("personal/helados-pattern.webp", t("Patrón de helados", "Ice cream pattern"), "1 / 1", True),
-             ("personal/music.webp", t("Patrón de música y conciertos", "Music and concerts pattern"), "1 / 1", True),
-             ("personal/coche.webp", t("Ilustración de coche y cajas", "Illustration of a car and boxes"), "898 / 672", True),
-             ("personal/cuadro-camisa.webp", t("Chico de espaldas con camisa estampada dentro de un marco, con un cigarro en la mano", "Boy seen from behind in a patterned shirt inside a frame, holding a cigarette"), "1 / 1", True)]
-    g = ""
-    for fl, alt, ratio, m in items:
-        g += "  " + media(fl, alt, ratio, cls="media--m" if m else "") + "\n"
-    g += ('  <div class="fila-par">' + media("personal/crane.webp", t("Ilustración en viñetas", "Comic-style panel illustration"), "1080 / 1363", cls="par-a")
-          + media("personal/cuarentena.webp", t("Cuarentena", "Quarantine"), "2000 / 1333", cls="par-b") + '</div>\n')
-    # Parejas con la misma altura: cada imagen ocupa en proporción a su ancho/alto
-    def pareja(a, b):
-        def fig(fl, alt, w, h): return media("personal/" + fl, alt, f"{w} / {h}", style=f"flex: {w/h:.4f} 1 0")
-        return '  <div class="fila-par">' + fig(*a) + fig(*b) + '</div>\n'
-    g += pareja(("dogs.webp", t("Montaña de perros", "Mountain of dogs"), 533, 400),
-                ("letra-h.webp", t("Letra H construida con formas de colores sobre fondo oscuro", "Letter H built from colourful shapes on a dark background"), 800, 600))
-    g += "  " + media("personal/yorokobu-skatepark.webp", t("Portada para Yorokobu con un skatepark isométrico y contraportada de Volkswagen", "Yorokobu cover with an isometric skatepark and Volkswagen back cover"), "1920 / 1280") + "\n"
-    g += pareja(("leo-luego-pienso.webp", t("Ilustración «Leo, luego pienso»: dos personas leyendo", "“Leo, luego pienso” illustration: two people reading"), 752, 564),
-                ("leo-luego-pienso-mupi.webp", t("Cartel «Leo, luego pienso» del Mes del Libro 2019 en un mupi", "“Leo, luego pienso” Book Month 2019 poster on a street billboard"), 1300, 790))
-    g += pareja(("skate-pantalla.webp", t("Chico con monopatín saliendo de la pantalla de un móvil", "Boy with a skateboard stepping out of a phone screen"), 1200, 1200),
-                ("mundo-skate.webp", t("Chico sobre dos monopatines sosteniendo el mundo", "Boy on two skateboards holding up the world"), 1200, 1300))
+    # La galería (orden, parejas y textos alternativos) vive en herramientas/galeria_personal.py
+    from galeria_personal import galeria_html
+    g = galeria_html(L, PRE)
     proyectos_vis = [
         ("visual-keepgoing.webp", "Keepgoing", t("Packaging", "Packaging"), t("Envase de la barrita EnergyBar de chocolate y avellana de Keepgoing", "Keepgoing EnergyBar chocolate hazelnut pack"), "https://www.behance.net/gallery/127960447/Keepgoing"),
         ("visual-carme-pinos.webp", t("Exposición Carme Pinós", "Carme Pinós exhibition"), t("Museo ICO · 2020", "Museo ICO · 2020"), t("Cartel tipográfico de la exposición Carme Pinós. Máquinas en el entorno, Museo ICO", "Typographic poster for the exhibition Carme Pinós. Machines in the landscape, Museo ICO"), "https://www.behance.net/gallery/109660359/Exposicion-Carme-Pinos"),
